@@ -36,6 +36,16 @@
 <link rel="stylesheet" href="./css/ion.rangeSlider.skinModern.css"/>
 <!--<link rel="stylesheet" href="./css/ion.rangeSlider.skinFlat.css"/>-->
 
+
+
+
+
+
+ <script type="text/javascript" src="cordova.js"></script>
+
+
+
+
 	
 
 
@@ -1563,7 +1573,145 @@ function dodajLayerOveStaze(indexKliknutogUTrack_bazaStaze){
 		
 	
 	
+	
+	 
+	 
+	 
+ var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+		moja1();
+		 
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+/*     
+	 var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
 
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+*/
+        console.log('Received Event: ' + id);
+  
+  }
+};
+
+	function moja1(){
+		alert("mojaaa2");
+		 //navigator.geolocation.getCurrentPosition(onSuccess, onError);
+		 watchMapPosition();
+		//alert("mojaaa2");
+	}
+	
+	
+	var greenIcon = L.icon({
+    iconUrl: './img-m/leaf-green.png',
+    shadowUrl: './img-m/leaf-shadow.png',
+
+    iconSize:     [38, 95], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+	var obicanIcon = L.icon({
+    iconUrl: './img-m/obican.png'
+});
+
+	
+ function gr_showMaker(k1,k2){
+//L.marker([45.172810033, 19.752429989]).addTo(map); 
+L.marker([k1, k2], {icon: obicanIcon}).addTo(map); 
+//alert("s");
+ } 
+
+  function onSuccess(position) {
+ /*       alert('Latitude: '          + position.coords.latitude          + '\n' +
+              'Longitude: '         + position.coords.longitude         + '\n' +
+              'Altitude: '          + position.coords.altitude          + '\n' +
+              'Accuracy: '          + position.coords.accuracy          + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+              'Heading: '           + position.coords.heading           + '\n' +
+              'Speed: '             + position.coords.speed             + '\n' +
+              'Timestamp: '         + position.timestamp                + '\n');
+	*/		  
+ //gr_showMaker(45.172810033,19.752429989);
+ gr_showMaker(position.coords.latitude,position.coords.longitude);
+ };
+ 
+// L.marker([45.172810033, 19.752429989]).addTo(map); 
+ 
+ //gr_showMaker(45.172810033,19.752429989,L,map);
+ //gr_showMaker(45.172810033,19.752429989);
+ //function gr_showMaker(k1,k2,L,map){
+ 
+	
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+	
+	
+	/***************/
+	
+	
+	var onMapWatchSuccess = function (position) {
+gr_showMaker(position.coords.latitude,position.coords.longitude);
+	/*
+    var updatedLatitude = position.coords.latitude;
+    var updatedLongitude = position.coords.longitude;
+
+    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {
+
+        Latitude = updatedLatitude;
+        Longitude = updatedLongitude;
+
+        getMap(updatedLatitude, updatedLongitude);
+    }
+	*/
+}
+
+// Error callback
+
+function onMapError(error) {
+    console.log('code: ' + error.code + '\n' +
+        'message: ' + error.message + '\n');
+}
+
+// Watch your changing position
+
+function watchMapPosition() {
+
+    return navigator.geolocation.watchPosition
+    (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
+}
+	
+	
+	
+	
+	/*************/
+	
 
 /*
 map.on('click', function(e) {
@@ -1571,8 +1719,10 @@ map.on('click', function(e) {
 });
 */
 
-
-    </script>
+//alert("16");
+ app.initialize();
+//alert("2");
+ </script>
  
 </body>
 </html>
