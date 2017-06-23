@@ -1703,7 +1703,7 @@ gr_showMaker(position.coords.latitude,position.coords.longitude);
 // Error callback
 
 function onMapError(error) {
-alert("12erb");
+alert("12erb"+ " - " + error.code + " - " +error.message);
     console.log('code: ' + error.code + '\n' +
         'message: ' + error.message + '\n');
 }
