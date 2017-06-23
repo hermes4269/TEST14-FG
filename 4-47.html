@@ -1400,6 +1400,7 @@ arGroupNames[61]="Stump";
 arGroupNames[62]="Waypoint";
 */
 
+alert("14");
 for (var i = 0; i < arGroupNames.length; i++){
     arGrupaLayerWp[i]=new L.LayerGroup();
 }
@@ -1429,7 +1430,7 @@ $.each(wayPoints.features, function(index, element) {
   
 });
 
-
+alert("15");
 
 $.each(track_11.features, function(index, element) {
 		
@@ -1488,7 +1489,7 @@ var coorsLayer = L.geoJson(coorsField, {
 
  
  
-
+alert("16");
  
  function ispisPopUpZaWayPoint(wpIme,wpOpis){
  	var wpOpis1="";
@@ -1559,7 +1560,7 @@ function dodajLayerOveStaze(indexKliknutogUTrack_bazaStaze){
     				
 
 
-
+alert("17");
 
 
 
@@ -1578,6 +1579,7 @@ function dodajLayerOveStaze(indexKliknutogUTrack_bazaStaze){
 	
 	 
 	 
+	 alert("18");
 	 
  var app = {
     // Application Constructor
@@ -1639,6 +1641,8 @@ function dodajLayerOveStaze(indexKliknutogUTrack_bazaStaze){
 });
 
 	
+	alert("19");
+	
  function gr_showMaker(k1,k2){
 //L.marker([45.172810033, 19.752429989]).addTo(map); 
 L.marker([k1, k2], {icon: obicanIcon}).addTo(map); 
@@ -1661,6 +1665,7 @@ L.marker([k1, k2], {icon: obicanIcon}).addTo(map);
  
  L.marker([45.172810033, 19.752429989], {icon: obicanIcon}).addTo(map); 
  
+ alert("20");
  //gr_showMaker(45.172810033,19.752429989,L,map);
  //gr_showMaker(45.172810033,19.752429989);
  //function gr_showMaker(k1,k2,L,map){
@@ -1721,7 +1726,7 @@ map.on('click', function(e) {
 });
 */
 
-alert("14");
+alert("21");
  // app.initialize();
 //alert("2");
  </script>
