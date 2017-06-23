@@ -1713,7 +1713,7 @@ function onMapError(error) {
 function watchMapPosition() {
 	//alert("11b");
     return navigator.geolocation.watchPosition
-    (onMapWatchSuccess, onMapError);
+    (onMapWatchSuccess, onMapError,{  enableHighAccuracy: true });
 }
 	
 	
