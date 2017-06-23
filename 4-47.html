@@ -1685,6 +1685,7 @@ L.marker([k1, k2], {icon: obicanIcon}).addTo(map);
 	
 	var onMapWatchSuccess = function (position) {
 gr_showMaker(position.coords.latitude,position.coords.longitude);
+	alert("12");
 	/*
     var updatedLatitude = position.coords.latitude;
     var updatedLongitude = position.coords.longitude;
@@ -1702,6 +1703,7 @@ gr_showMaker(position.coords.latitude,position.coords.longitude);
 // Error callback
 
 function onMapError(error) {
+alert("12er");
     console.log('code: ' + error.code + '\n' +
         'message: ' + error.message + '\n');
 }
@@ -1709,7 +1711,7 @@ function onMapError(error) {
 // Watch your changing position
 
 function watchMapPosition() {
-
+	alert("11");
     return navigator.geolocation.watchPosition
     (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
 }
